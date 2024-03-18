@@ -23,8 +23,9 @@ connection.once('open', async () => {
   await User.collection.insertMany(user_Info);
   await Thought.collection.insertMany(thoughts);
 
-  // loop through the saved applications, for each application we need to generate a application response and insert the application responses
-  //console.table(users);
+  console.table(user_Info);
+  console.table(thoughts);
+
 
   console.info('Seeding complete! 🌱');
   process.exit(0);
