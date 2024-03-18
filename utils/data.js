@@ -72,12 +72,15 @@ const getRandomUsername =() =>{
 
 
 // Function to generate random applications that we can add to the database. Includes application tags.
+const time = new Date().toLocaleString().split(',')[0];
+
 const getRandomThought = (int) => {
   let results = [];
   for (let i = 0; i < int; i++) {
       results.push({
       thoughtText: getRandomArrItem(thoughts),
       username: getRandomUsername().username,
+      createdAt: new Date().toLocaleString().split(',')[0],
       reactions: [...getReactions(3)]
     });
   }
@@ -98,6 +101,7 @@ const getReactions = (int) => {
   }
   return results;
 };
+
 
 // Export the functions for use in seed.js
 module.exports = { getRandomThought,user_Info};

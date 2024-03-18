@@ -16,8 +16,7 @@ const thoughtSchema = new Schema(
     {
       type: Date,
       default: Date.now,
-      //will create a getter method to format the timestamp on query
-      //get: createdAtVal => moment(createdAtVal).format('MMM DD, YYYY [at] hh:mm a')
+      get: timestamp => new Date(timestamp).toLocaleString().split(',')[0],
     },
 
     username: //The user that created this thought

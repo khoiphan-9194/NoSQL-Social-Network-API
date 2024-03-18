@@ -20,6 +20,7 @@ const reactionSchema = new Schema(
           type: Date,
           default: Date.now,
           //get: createdAtVal => dateFormat(createdAtVal)
+          get: timestamp => new Date(timestamp).toLocaleString().split(',')[0],
       }
   },
   {
