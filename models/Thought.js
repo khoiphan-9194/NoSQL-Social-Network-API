@@ -1,18 +1,17 @@
 const { Schema, model } = require('mongoose');
-//const moment = require('moment');
 const reactionSchema = require('./Reaction');
 
 const thoughtSchema = new Schema(
   {
-    thoughtText: 
+    thoughtText:
     {
       type: String,
       required: true,
-      minlength:1,
+      minlength: 1,
       maxlength: 280
     },
 
-    createdAt: 
+    createdAt:
     {
       type: Date,
       default: Date.now,
@@ -26,11 +25,11 @@ const thoughtSchema = new Schema(
     },
 
     reactions: [reactionSchema] //Array of nested documents created with the reactionSchema
-    
+
   },
-  
+
   {
-    toJSON: 
+    toJSON:
     {
       getters: true,
     },
@@ -45,6 +44,6 @@ thoughtSchema
     return this.reactions.length;
   })
 
-  const Thought = model('Thought', thoughtSchema);
+const Thought = model('Thought', thoughtSchema);
 
 module.exports = Thought;

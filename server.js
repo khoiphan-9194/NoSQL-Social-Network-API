@@ -12,8 +12,6 @@ const activity = cwd.includes('NoSQL')
   ? cwd.split('NoSQL-')[1]
   : cwd;
 
-  console.log(activity)
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);

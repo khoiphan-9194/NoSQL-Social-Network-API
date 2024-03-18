@@ -51,23 +51,21 @@ module.exports = {
   },
 
   //update a user
-  async updateUser(req,res)
-  {
-    try
-    {
-        console.log('you are updating a user')
-        console.log(req.body);
-        const user = await User.findOneAndUpdate
-        ( {_id: req.params.userId},
-          { $set: req.body},
+  async updateUser(req, res) {
+    try {
+      console.log('you are updating a user')
+      console.log(req.body);
+      const user = await User.findOneAndUpdate
+        ({ _id: req.params.userId },
+          { $set: req.body },
           { runValidators: true, new: true }
         )
-        if (!user) {
-          return res.status(404).json({ message: 'No user with this id!' });
-        }
+      if (!user) {
+        return res.status(404).json({ message: 'No user with this id!' });
+      }
 
-        res.json(user);
-    }catch (err) {
+      res.json(user);
+    } catch (err) {
       res.status(500).json(err);
     }
 
@@ -75,12 +73,12 @@ module.exports = {
 
 
   async addFriend(req, res) {
-    await User.findOneAndUpdate({ _id: req.params.userId }, { $addToSet: { friends: req.params.friendId } }, {runValidators: true, new: true})
-      .then((userData ) => {
-        if (!userData ) {
+    await User.findOneAndUpdate({ _id: req.params.userId }, { $addToSet: { friends: req.params.friendId } }, { runValidators: true, new: true })
+      .then((userData) => {
+        if (!userData) {
           return res.status(404).json({ message: 'No user found with this id!' });
         }
-        res.json(userData );
+        res.json(userData);
       })
       .catch((err) => {
         console.log(err);

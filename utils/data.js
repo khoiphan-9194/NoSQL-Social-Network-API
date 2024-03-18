@@ -1,19 +1,19 @@
 const user_Info = [
   {
-      username: 'chodien',
-      email: 'chodien@gmail.com',
+    username: 'chodien',
+    email: 'chodien@gmail.com',
   },
   {
-      username: 'heomap',
-      email: 'heomap@gmail.com'
+    username: 'heomap',
+    email: 'heomap@gmail.com'
   },
   {
-      username: 'cuniu',
-      email: 'cuniu@gmail.com'
+    username: 'cuniu',
+    email: 'cuniu@gmail.com'
   },
   {
-      username: 'thogia',
-      email: 'thogia@gmail.com'
+    username: 'thogia',
+    email: 'thogia@gmail.com'
   }
 
 ]
@@ -40,7 +40,7 @@ const reactions = [
   'Boring',
 ];
 
-const getArrLenth = (arr) => {return arr.length};
+const getArrLenth = (arr) => { return arr.length };
 const genRandomIndex = (arr) => Math.floor(Math.random() * arr.length);
 //console.log(genRandomIndex(thoughts)); //return a Random index based on arr
 const getRandomWord = () => `${thoughts[genRandomIndex(thoughts)]}`;
@@ -64,7 +64,7 @@ const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 // console.log(getRandomArrItem(user_Info))
 // Gets a random full name
 //const getRandomName = () =>
-const getRandomUsername =() =>{
+const getRandomUsername = () => {
   return getRandomArrItem(user_Info);
 }
 
@@ -77,7 +77,7 @@ const time = new Date().toLocaleString().split(',')[0];
 const getRandomThought = (int) => {
   let results = [];
   for (let i = 0; i < int; i++) {
-      results.push({
+    results.push({
       thoughtText: getRandomArrItem(thoughts),
       username: getRandomUsername().username,
       createdAt: new Date().toLocaleString().split(',')[0],
@@ -96,7 +96,7 @@ const getReactions = (int) => {
   for (let i = 0; i < int; i++) {
     results.push({
       reactionBody: getRandomArrItem(reactions),
-      username:  getRandomUsername().username,
+      username: getRandomUsername().username,
     });
   }
   return results;
@@ -104,4 +104,4 @@ const getReactions = (int) => {
 
 
 // Export the functions for use in seed.js
-module.exports = { getRandomThought,user_Info};
+module.exports = { getRandomThought, user_Info };

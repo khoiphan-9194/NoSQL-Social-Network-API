@@ -47,7 +47,7 @@ module.exports = {
     }
   },
 
-  async updateThought (req, res) {
+  async updateThought(req, res) {
     try {
       const thought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
@@ -76,7 +76,7 @@ module.exports = {
       }
       // since each user associates with a thought, so when a thought deleted, it will pull out from a user
       const user = await User.findOneAndUpdate(
-        {_id:req.body.userId},
+        { _id: req.body.userId },
         { $pull: { thoughts: req.params.thoughtId } },
         { new: true }
       );

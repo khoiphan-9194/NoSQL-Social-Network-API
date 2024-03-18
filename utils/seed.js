@@ -1,6 +1,6 @@
 const connection = require('../config/connection');
 const { User, Thought } = require('../models');
-const {getRandomThought,user_Info} = require('./data');
+const { getRandomThought, user_Info } = require('./data');
 
 
 connection.on('error', (err) => err);
@@ -12,7 +12,7 @@ connection.once('open', async () => {
   if (thoughtCheck.length) {
     await connection.dropCollection('thoughts');
   }
-  
+
   let userCheck = await connection.db.listCollections({ name: 'users' }).toArray();
   if (userCheck.length) {
     await connection.dropCollection('users');
@@ -25,7 +25,7 @@ connection.once('open', async () => {
 
   // loop through the saved applications, for each application we need to generate a application response and insert the application responses
   //console.table(users);
- 
+
   console.info('Seeding complete! 🌱');
   process.exit(0);
 });
