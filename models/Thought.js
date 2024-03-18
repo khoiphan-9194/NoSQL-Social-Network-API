@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const moment = require('moment');
+//const moment = require('moment');
 const reactionSchema = require('./Reaction');
 
 const thoughtSchema = new Schema(
@@ -39,7 +39,7 @@ const thoughtSchema = new Schema(
   }
 );
 //Create a virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
-userSchema
+thoughtSchema
   .virtual('reactionCount ')
   // Getter
   .get(function () {
